@@ -73,8 +73,13 @@ jobs:
         format: 'table'
         exit-code: '0'
         ignore-unfixed: true
-        severity: 'CRITICAL,HIGH'
-        timeout: '5m'
+        severity: 'CRITICAL,HIGH,MEDIUM'
+
+    - name: Upload Trivy scan results
+      uses: actions/upload-artifact@v4
+      with:
+        name: trivy-results
+        path: trivy-results.json
         
     - name: Test Docker image
       run: |
