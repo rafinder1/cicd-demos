@@ -2,6 +2,11 @@ name: Pipeline CI
 
 on:
   workflow_dispatch:
+    inputs:
+      version_type:
+        description: 'Wybierz typ wersji (patch, minor, major)'
+        required: false
+        default: 'patch'
 
 jobs:
   test:
